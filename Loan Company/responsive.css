@@ -1,0 +1,154 @@
+/* Responsive Styles */
+
+@media (max-width: 992px) {
+    .loan-rates {
+        padding: 10px 40px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loan-card-rates {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .loan-card-rates:last-child {
+        border-bottom: none;
+    }
+
+    .loan-cards,
+    .cards,
+    .process-cards,
+    .testimonials-wrapper,
+    .news-grid,
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loan-card,
+    .card,
+    .process-card,
+    .testimonial,
+    .news-card,
+    .footer-col {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .loan-card-rates-container {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .navbar,
+    .top-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .newsletter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter input,
+    .newsletter button {
+        width: 100%;
+        border-radius: 4px;
+    }
+
+    .loan-card,
+    .card,
+    .process-card,
+    .testimonial,
+    .news-card {
+        padding: 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .loan-card-rates {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .loan-text {
+        align-items: center;
+    }
+
+    .loan-card-rates img {
+        margin: 0 auto 10px;
+    }
+
+    .hero-content {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .eligibility-btn {
+        padding: 10px 20px;
+    }
+
+    .news-card {
+        height: auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .top-links a {
+        margin-left: 8px;
+        font-size: 11px;
+    }
+
+    .loan-header h2,
+    .process-header h2,
+    .help-section h2,
+    .section-header h2 {
+        font-size: 24px;
+    }
+
+    .testimonial .text,
+    .news-card .desc,
+    .card p,
+    .loan-card p,
+    .process-card p {
+        font-size: 13px;
+    }
+
+    .footer-right h3,
+    .footer-col p,
+    .footer-col ul {
+        font-size: 14px;
+    }
+
+    .loan-card a,
+    .card a {
+        font-size: 16px;
+    }
+}

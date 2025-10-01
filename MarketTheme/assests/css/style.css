@@ -1,0 +1,38 @@
+/* .bg-image {
+    background-image: url("../images/background-image.jpg");
+    background-size: cover;
+    background-position: center;   
+    background-repeat: no-repeat;
+} */
+
+.bg-image {
+    background: linear-gradient(to left, #d4e7eb, #e8f2f4, #fff, #fff);
+    width: 100%;
+}
+.nav-logo {
+    margin-left: 40px;
+}
+
+
+.custom-btn:hover {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+    transition: all 0.3s ease-in-out;
+}
+
+.texts-custom {
+    margin-top: 50px;
+}
+
+
+
+.blog-img{
+    background-size: cover;
+}
+
+.page-link.no-border {
+    border: none !important;
+    box-shadow: none !important;
+    color: grey;
+}
