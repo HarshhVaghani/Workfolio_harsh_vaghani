@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body class="bg-black text-white h-screen flex flex-col overflow-hidden">
+    
+    <!-- Header -->
+    <header class="h-16 flex items-center justify-between px-6 bg-zinc-900 sticky top-0 z-10">
+        <!-- Left: Logo & Home -->
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="#1DB954">
+                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+                <span class="text-xl font-bold">Spotify</span>
+            </div>
+            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 hover:bg-zinc-700">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Center: Search -->
+        <div class="flex-1 max-w-xl mx-8">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="What do you want to listen to?" 
+                    class="w-full bg-zinc-800 rounded-full px-12 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-white"
+                >
+                <svg class="w-5 h-5 absolute left-4 top-3.5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Right: User -->
+        <div class="flex items-center gap-4">
+            <button class="px-6 py-2 rounded-full bg-white text-black font-semibold text-sm hover:scale-105 transition">
+                Sign up
+            </button>
+            <button class="px-6 py-2 rounded-full border border-gray-500 text-white font-semibold text-sm hover:scale-105 transition">
+                Log in
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-1 overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-72 bg-black p-6 space-y-6 overflow-y-auto">
+            <nav class="space-y-4">
+                <a href="#" class="flex items-center gap-4 text-gray-400 hover:text-white transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm7-10a1 1 0 000 2h11a1 1 0 000-2H10zm0-7a1 1 0 000 2h11a1 1 0 000-2H10zm0 14a1 1 0 000 2h11a1 1 0 000-2H10z"/>
+                    </svg>
+                    <span class="font-semibold">Your Library</span>
+                </a>
+            </nav>
+
+            <div class="space-y-2">
+                <h3 class="text-sm font-semibold text-gray-400 px-3">PLAYLISTS</h3>
+                <div id="playlistContainer" class="space-y-1">
+                    <!-- Playlists will be added here by JS -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="flex-1 bg-gradient-to-b from-zinc-800 to-black overflow-y-auto p-6">
+            
+            <h1 class="text-3xl font-bold mb-6">Good afternoon</h1>
+
+            <!-- Recently Played -->
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="bg-zinc-800 hover:bg-zinc-700 rounded flex items-center gap-4 overflow-hidden cursor-pointer transition group" onclick="playSong('Liked Songs', 'Your favorite tracks')">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                        <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold">Liked Songs</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Playlists Section -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold mb-4">Made for you</h2>
+                <div class="grid grid-cols-5 gap-4" id="playlistGrid">
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Player Controls -->
+    <footer class="h-24 bg-zinc-900 border-t border-zinc-800 flex items-center justify-between px-4">
+        
+        <!-- Currently Playing -->
+        <div class="flex items-center gap-4 w-80">
+            <div id="currentTrackImage" class="w-14 h-14 bg-zinc-800 rounded"></div>
+            <div>
+                <p id="currentTrackName" class="text-sm font-semibold">Track Name</p>
+                <p id="currentTrackArtist" class="text-xs text-gray-400">Artist</p>
+            </div>
+            <button class="text-gray-400 hover:text-white">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="flex flex-col items-center gap-2 flex-1">
+            <div class="flex items-center gap-4">
+                <button class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                    </svg>
+                </button>
+                <button id="playPauseBtn" class="w-8 h-8 bg-white rounded-full flex items-center justify-center hover:scale-105 transition" onclick="togglePlay()">
+                    <svg id="playIcon" class="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pauseIcon" class="w-4 h-4 text-black hidden" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                </button>
+                <button class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M16 18l8.5-6L16 6v12zM6 6v12h2V6H6z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex items-center gap-2 w-full max-w-xl">
+                <span class="text-xs text-gray-400">0:00</span>
+                <div class="flex-1 h-1 bg-zinc-600 rounded-full overflow-hidden">
+                    <div id="progressBar" class="h-full bg-white w-0 transition-all"></div>
+                </div>
+                <span class="text-xs text-gray-400">3:45</span>
+            </div>
+        </div>
+
+        <!-- Volume -->
+        <div class="flex items-center gap-2 w-80 justify-end">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+            </svg>
+            <input type="range" min="0" max="100" value="50" class="w-24 h-1 bg-zinc-600 rounded-full appearance-none cursor-pointer">
+        </div>
+    </footer>
+
+   <script src="./script.js"></script>
+</body>
+</html>
+
